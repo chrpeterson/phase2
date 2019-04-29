@@ -1,6 +1,7 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+	  <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
   
       <style>
       
@@ -36,7 +37,7 @@ z-index: -10;
            </div>
     <a-scene>
 <a-entity id="rig" position="0 0 0">
-  <a-camera id="camera" look-controls-enabled="false"></a-camera>
+  <a-camera id="camera" tilt-turn="criticalAngle: 20"></a-camera>
 </a-entity>
       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
