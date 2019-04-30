@@ -1,8 +1,11 @@
-<html>
-  <head>
-    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
-	 <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
-         <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script> 
+  <script src="https://rawgit.com/mayognaise/aframe-drag-look-controls-component/master/dist/aframe-drag-look-controls-component.min.js"></script> 
+</head>
+
+
       <style>
       
         #camera2 {
@@ -36,8 +39,8 @@ z-index: -10;
 <object id="camera--output"></object>
            </div>
     <a-scene>
-
-  <a-camera id="camera" twoway-motion="speed: 35" tilt-turn="criticalAngle: 200"></a-camera>
+ <a-entity camera drag-look-controls></a-entity>
+ 
 
       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
