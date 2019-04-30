@@ -13,26 +13,28 @@
 
 <a-scene>
 
-  <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="blue"></a-cylinder>
+  <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="purple"></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
         
 </a-scene>
 
   <script>
 AFRAME.registerComponent('rotation-reader', {
-  tick: function () {
-    // `this.el` is the element.
-    // `object3D` is the three.js object.
+  /**
+   * We use IIFE (immediately-invoked function expression) to only allocate one
+   * vector or euler and not re-create on every tick to save memory.
+   */
+  tick: (function () {
+    var position = new THREE.Vector3();
+    var rotation = new THREE.Euler();
 
-    // `rotation` is a three.js Euler using radians. `quaternion` also available.
-    console.log(this.el.object3D.rotation);
-
-    // `position` is a three.js Vector3.
-    console.log(this.el.object3D.position);
-  }
+    return function () {
+      this.el.object3D.getWorldPosition(position);
+      this.el.object3D.getWorldRotation(rotation);
+      // position and rotation now contain vector and euler in world space.
+    };
+  })
 });
-
-// <a-entity camera look-controls rotation-reader>
     
   </script>
     
